@@ -34,7 +34,7 @@ return{
 	      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 	      opts.desc = "See available [C]ode [A]ctions"
-	      keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
+	      keymap.set("n", "<localleader>ca", function() print("code action was ran") end, opts)
 
 	      opts.desc = "Smart Rename"
 	      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)

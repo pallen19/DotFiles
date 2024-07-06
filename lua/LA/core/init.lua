@@ -5,7 +5,7 @@ require 'LA.plugins'
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '.'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -54,11 +54,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- The event data property will contain a string with either "default" or "light" respectively
-vim.api.nvim_create_autocmd("User", {
-    pattern = "CyberdreamToggleMode",
-    callback = function(event)
-        -- Your custom code here!
-        -- For example, notify the user that the colorscheme has been toggled
-        print("Switched to " .. event.data .. " mode!")
-    end,
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'CyberdreamToggleMode',
+  callback = function(event)
+    -- Your custom code here!
+    -- For example, notify the user that the colorscheme has been toggled
+    print('Switched to ' .. event.data .. ' mode!')
+
+vim.cmd("colorscheme cyberdream")
+  end,
 })

@@ -70,8 +70,10 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 
 -- Set tab to certain amount of spaces
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 
 vim.opt.tw = 200
+vim.opt.sw =0
+vim.opt.et = true
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
