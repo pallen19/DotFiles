@@ -1,4 +1,0 @@
-return{
-    "jmederosalvarado/roslyn.nvim"
-}
-

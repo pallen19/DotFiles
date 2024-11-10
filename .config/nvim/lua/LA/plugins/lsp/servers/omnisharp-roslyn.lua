@@ -1,4 +1,4 @@
 return
 {
-    "Omnisharp/omnisharp-roslyn"
+    "Omnisharp/omnisharp-roslyn",
 }

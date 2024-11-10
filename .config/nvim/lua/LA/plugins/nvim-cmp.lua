@@ -39,6 +39,7 @@ mapping = cmp.mapping.preset.insert({
 
 --sources for autocompletion
 sources = cmp.config.sources({
+	{ name = "lsp" },
 	{ name = "nvim_lua" },
 	{ name = "nvim_lsp" },
 	{ name = "luasnip" },

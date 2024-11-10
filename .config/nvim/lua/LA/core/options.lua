@@ -36,7 +36,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 opt.termguicolors = true
-opt.background = 'dark'
+-- opt.background = 'dark'
 -- Keep signcolumn on by default
 opt.signcolumn = 'yes'
 
@@ -73,7 +73,9 @@ opt.hlsearch = true
 opt.tabstop = 4
 
 opt.tw = 200
-opt.sw =0
+
+-- By setting this to 0 we default to the opt.tabstop value set above instead of '8'
+opt.sw = 0
 opt.et = true
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
