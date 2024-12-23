@@ -1,4 +1,5 @@
-return {
+local M =
+{
     "seblj/roslyn.nvim",
     ft = "cs",
     event = { "BufReadPre", "BufNewFile" },
@@ -45,3 +46,4 @@ return {
         },
     }
 }
+return M

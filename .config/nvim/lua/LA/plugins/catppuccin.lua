@@ -1,6 +1,7 @@
 local Mod = {
     "catppuccin/nvim",
     name = "catppuccin",
+    event = "VeryLazy",
     priority = 1000,
     config = function()
         require("catppuccin").setup({
@@ -51,7 +52,7 @@ local Mod = {
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
         })
-        vim.cmd.colorscheme "catppuccin-mocha"
+        -- vim.cmd.colorscheme "catppuccin-mocha"
     end,
 }
 return Mod
