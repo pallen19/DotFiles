@@ -1,5 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export CPATH="/opt/homebrew/opt/openssl@3/include:$CPATH"
+export GECKO_DRIVER=/usr/local/Cellar/geckodriver/0.XX.0/bin
+export NUGET_PKGS=/Users/$USER/.nuget/packages
+export PATH=${PATH}:$GECKO_DRIVER
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -24,6 +28,12 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
+# Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='~~'
+
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -31,7 +41,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -126,12 +136,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-
-
 #Set up Alias here
-alias dcu='docker compose up --build -d'
+alias dcu='docker compose up -d'
 alias dcd='docker compose down'
 alias dcdrf='docker compose down --rmi local'
-alias dcdu='docker compose down && docker compose up --build -d'
+alias dcdrfu='docker compose down --rmi local && docker compose up -d'
+alias dcdu='docker compose down && docker compose up -d'
 alias dlsc='docker ps'
 alias dlsi='docker images'
+
+alias config='/usr/bin/git --git-dir=/Users/paul.allen/.nvim-config/ --work-tree=/Users/paul.allen'
