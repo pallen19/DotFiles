@@ -79,3 +79,8 @@ opt.sw = 0
 opt.et = true
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Configure native folding
+opt.foldmethod = 'indent'
+opt.foldlevel = 99
+opt.foldcolumn = '1'

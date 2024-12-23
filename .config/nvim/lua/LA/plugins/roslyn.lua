@@ -39,6 +39,7 @@ return {
         { '<leader>ca', vim.lsp.buf.code_action,             { noremap = false, silent = true, desc = 'Code Action' } },
         { '<leader>gr', '<cmd>Telescope lsp_references<cr>', { noremap = false, silent = true, desc = 'Code References' } },
         { '<leader>rn', vim.lsp.buf.rename,                  { noremap = false, silent = true, desc = 'Rename' } },
+        { '<leader>rs', '<cmd>Roslyn restart<cr>',           { noremap = false, silent = true, desc = 'Restart Roslyn Lsp Server' } },
         { "<leader>fm", vim.lsp.buf.format,                  { noremap = false, silent = true, desc = 'Format Current Buffer' } },
         { "K", vim.lsp.buf.hover, { noremap = false, silent = true, desc = 'Hover Help' }
         },

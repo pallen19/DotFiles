@@ -40,9 +40,9 @@ keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window'
 keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- window management
-keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' }) -- split window vertically
-keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' }) -- split window horizontally
-keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Splits equal in size' }) -- equal size splits
+keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })     -- split window vertically
+keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })   -- split window horizontally
+keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Splits equal in size' })        -- equal size splits
 keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' }) -- close current split
 
 -- increment/decrement numbers

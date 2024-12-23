@@ -39,7 +39,6 @@ return {
         require('mason-nvim-dap').setup()
 
 
-        local install_dir = vim.fn.stdpath('data') .. '/mason'
         require('netcoredbg-macOS-arm64').setup(require('dap'))
 
         dap.adapters.netcoredbg = {
@@ -48,7 +47,7 @@ return {
         }
 
         local function getCurrentFileDirName()
-            local fullPath = vim.fn.expand('%:p:h') -- Get the full path of the directory containing the current file
+            local fullPath = vim.fn.expand('%:p:h')      -- Get the full path of the directory containing the current file
             local dirName = fullPath:match("([^/\\]+)$") -- Extract the directory name
             return dirName
         end
@@ -64,28 +63,33 @@ return {
         end
 
         local function get_dll_path()
-            local debugPath = vim.fn.expand('%:p:h') .. '/bin/Debug'
-            if not file_exists(debugPath) then
+            local pattern = '/src/CAL.CD.PermissionsService.Api/bin/Debug/net8.0/CAL.CD.PermissionsService.Api.dll'
+            if not file_exists(pattern) then
                 return vim.fn.getcwd()
             end
-            local command = 'find "' .. debugPath .. '" -maxdepth 1 -type d -name "*net*" -print -quit'
+            local command = 'find "' .. vim.fn.getcwd() .. pattern .. '" -maxdepth 1 -type d -name "*net*" -print -quit'
             local handle = io.popen(command)
             local result = handle:read("*a")
             handle:close()
             result = result:gsub("[\r\n]+$", "") -- Remove trailing newline and carriage return
             if result == "" then
-                return debugPath
+                return pattern
             else
                 local potentialDllPath = result .. '/' .. getCurrentFileDirName() .. '.dll'
                 if file_exists(potentialDllPath) then
                     return potentialDllPath
                 else
-                    return result == "" and debugPath or result .. '/'
+                    return result == "" and pattern or result .. '/'
                 end
                 --        return result .. '/' -- Adds a trailing slash if a net folder is found
             end
         end
 
+        local function get_sln_path()
+            local current_directory = vim.fn.expand('%:p:h')
+
+            local command = 'find/bin/Debugz'
+        end
         dap.configurations.cs = {
             {
                 type = 'coreclr',
@@ -160,7 +164,6 @@ return {
         })
     end,
 
-
     vim.keymap.set('n', '<leader>kt', "<cmd>:lua require('neotest').run.run()<cr>",
         { desc = 'Kick off test under cursor' }),
     vim.keymap.set('n', '<leader>kcf', "<cmd>:lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
@@ -170,29 +173,5 @@ return {
     vim.keymap.set('n', '<leader>st', "<cmd>:lua require('neotest').run.stop()<cr>",
         { desc = 'Stop running nearest test' }),
     vim.keymap.set('n', '<leader>kat', "<cmd>:lua require('neotest').run.attach()<cr>", { desc = 'Attach test' }),
+    vim.keymap.set('n', '<leader>ns', "<cmd>:lua require('neotest').summary.toggle()<cr>", { desc = 'Show Summary of Tests' }),
 }
-
---     -- Dap UI setup
---     -- For more information, see |:help nvim-dap-ui|
---     dapui.setup {
---       -- Set icons to characters that are more likely to work in every terminal.
---       --    Feel free to remove or use ones that you like more! :)
---       --    Don't feel like these are good choices.
---       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
---       controls = {
---         icons = {
---           pause = '⏸',
---           play = '▶',
---           step_into = '⏎',
---           step_over = '⏭',
---           step_out = '⏮',
---           step_back = 'b',
---           run_last = '▶▶',
---           terminate = '⏹',
---           disconnect = '⏏',
---         },
---       },
---
---     }
---   end,
--- }

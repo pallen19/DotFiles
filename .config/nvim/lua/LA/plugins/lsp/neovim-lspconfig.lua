@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",                              --completion source
+        "hrsh7th/cmp-nvim-lsp",                                   --completion source
         { "antosha417/nvim-lsp-file-operations", config = true }, --rename files through nvim tree and update imports
         "folke/lazydev.nvim"
     },
@@ -141,6 +141,8 @@ return {
             },
 
         })
+
+        require 'lspconfig'.ts_ls.setup {}
         -- CSHARP LSP
 
         -- lspconfig["csharp_ls"].setup({
