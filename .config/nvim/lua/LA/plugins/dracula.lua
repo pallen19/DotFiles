@@ -60,7 +60,7 @@ local M =
             }
         })
         vim.cmd.colorscheme 'dracula'
-        vim.cmd.colorscheme 'dracula-soft'
+        -- vim.cmd.colorscheme 'dracula-soft'
     end
 }
 return M

@@ -1,4 +1,5 @@
 return {
+    
     -- NOTE: Plugins can specify dependencies.
     --
     -- The dependencies are proper plugin specifications as well - anything
@@ -6,10 +7,11 @@ return {
     --
     -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
-    { -- Fuzzy Finder (files, lsp, etc)
+    --[[ { -- Fuzzy Finder (files, lsp, etc)
         'nvim-telescope/telescope.nvim',
         event = 'VimEnter',
         branch = '0.1.x',
+        enabled = false,
         dependencies = {
             'nvim-lua/plenary.nvim',
             { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -52,7 +54,7 @@ return {
 
             -- [[ Configure Telescope ]]
             -- See `:help telescope` and `:help telescope.setup()`
-            require('telescope').setup {
+            --[[ require('telescope').setup {
                 -- You can put your default mappings / updates / etc. in here
                 --  All the info you're looking for is in `:help telescope.setup()`
                 --
@@ -67,10 +69,10 @@ return {
                         require('telescope.themes').get_dropdown(),
                     },
                 },
-            }
+            }  ]]
 
             -- Enable Telescope extensions if they are installed
-            pcall(require('telescope').load_extension, 'fzf')
+            --[[ pcall(require('telescope').load_extension, 'fzf')
             pcall(require('telescope').load_extension, 'ui-select')
 
             -- See `:help telescope.builtin`
@@ -109,5 +111,5 @@ return {
                 builtin.find_files { cwd = vim.fn.stdpath 'config' }
             end, { desc = '[S]earch [N]eovim files' })
         end,
-    },
+    }, ]]
 }

@@ -1,6 +1,7 @@
 return {
     'nvim-tree/nvim-tree.lua',
     dependencies = 'nvim-tree/nvim-web-devicons',
+    enabled = false,
     config = function()
         --recommended settings from nvim-tree docs
         vim.g.loaded_netrw = 1

@@ -8,5 +8,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+vim.opt.rtp:prepend('~/.config/nvim/plugins')
 
-require('lazy').setup({ { import = 'LA.plugins' }, { import = 'LA.plugins.lsp' }, { import = 'LA.plugins.lsp.servers' } })
+require('lazy').setup({ { import = 'LA.plugins' }, { import = 'LA.plugins.lsp' }, { import = 'LA.plugins.lsp.servers' }})

@@ -1,6 +1,6 @@
 local M = {}
 
-local id = vim.api.nvim_create_augroup("saveOnExit", {
+--[[ local id = vim.api.nvim_create_augroup("saveOnExit", {
     clear = false
 })
 
@@ -21,5 +21,5 @@ vim.api.nvim_create_autocmd('BufRead', {
         })
     end,
 })
-
+]]
 return M

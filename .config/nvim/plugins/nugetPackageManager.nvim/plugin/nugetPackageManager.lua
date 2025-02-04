@@ -1,0 +1,2 @@
+print"Opened nugetPackageManager"
+

@@ -3,6 +3,7 @@ local Mod = {
     name = "catppuccin",
     event = "VeryLazy",
     priority = 1000,
+    enabled = false,
     config = function()
         require("catppuccin").setup({
             flavour = "frappe", -- latte, frappe, macchiato, mocha
