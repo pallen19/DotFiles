@@ -25,7 +25,6 @@ local M =
     },
     ---@module "snacks"
     keys = {
-        { "q",               "<cmd>:q<CR>",                                                          desc = "Close" },
         { "<leader>ot",      function() Snacks.terminal.open() end,                                  desc = "Open Terminal" },
         { "<leader>tt",      function() Snacks.terminal.toggle() end,                                desc = "Toggle Terminal" },
         { "<leader>gg",      function() Snacks.lazygit.log_file() end,                               desc = "Lazygit" },
@@ -64,7 +63,18 @@ local M =
         { "<leader>sq",      function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
         { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
         { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
+        { "<leader>np",      function () local result = vim.system({"echo", "Hello World"}, { text = true }):wait()
+    if result.code == 0 then
+        print(result.stdout)
+    else
+        print("Error: " .. result.stderr)
+    end
+        end, desc = "Run command in terminal" },
     }
 }
+
+M.show_nuget_packages = function ()
+        vim.system({'echo', 'hello'}, { text = true }, on_exit)
+end
 
 return M

@@ -25,10 +25,10 @@ return {
         dap.listeners.before.event_terminated['dapui_config'] = dapui.close
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
         -- Basic debugging keymaps, feel free to change to your liking!
-        keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-        keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-        keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-        keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+        keymap.set('n', '<localleader>sc', dap.continue, { desc = 'Debug: Start/Continue' })
+        keymap.set('n', '<localleader>si', dap.step_into, { desc = 'Debug: Step Into' })
+        keymap.set('n', '<localleader>sn', dap.step_over, { desc = 'Debug: Step Over' })
+        keymap.set('n', '<localleader>so', dap.step_out, { desc = 'Debug: Step Out' })
         keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
         keymap.set('n', '<leader>B', function()
             dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -206,7 +206,7 @@ return {
                     ASPNETCORE_URLS = function()
                         return coroutine.create(function(dap_run_co_url)
                             snacks.picker.select(
-                            { "http://localhost:15900", "http://localhost:15700/permissions-service",  "http://localhost:15500", "http://localhost:15510"},
+                            { "http://localhost:15900", "http://localhost:15700/permissions-service",  "http://localhost:15500", "http://localhost:15510",  "http://localhost:14900"},
                                 -- TODO: Get the read from file working that way we can parse the url based on the file
                                 -- { getEnvironmentUrl() },
                                 {

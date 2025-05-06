@@ -5,7 +5,7 @@ local keymap = vim.keymap
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+vim.g.maplocalleader = ","
 
 -- Exit insert mode keymap
 keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode with jk' })
@@ -49,5 +49,7 @@ keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' }
 keymap.set('n', '<leader>+', '<C-a>', { desc = 'Increment Number' }) -- close current split
 keymap.set('n', '<leader>-', '<C-x>', { desc = 'Decrement Number' }) -- close current split
 
+keymap.set('n', '<leader>ft', '<cmd>Oil<CR>', { desc = 'Open Oil File Tree' }) -- close current split
+keymap.set('n', '<leader><leader>x', '<cmd>w<CR><cmd>source %<CR>', { desc = 'Source Current File' }) -- close current split
 -- Add a custom keybinding to toggle the colorscheme
 -- vim.api.nvim_set_keymap("n", "<leader>tt", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true })

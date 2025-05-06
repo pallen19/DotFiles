@@ -1,42 +1,7 @@
 local wezterm = require 'wezterm'
-local config = {}
+local module = {}
 
-config.max_fps = 240
-config.font = wezterm.font('Fira Code')
--- config.font = wezterm.font_with_fallback {'JetBrains Mono'}
-config.font_size = 14.0
--- config.color_scheme = 'Batman'
--- config.color_scheme = 'Dracula+'
-config.color_scheme = 'tokyonight_night'
--- config.window_background_image = '/Users/paul.allen/Downloads/spaceman.png'
-config.window_background_opacity = 1
-config.text_background_opacity = 0.5
-config.use_fancy_tab_bar = false
-config.enable_scroll_bar = false
-config.front_end ="OpenGL"
-config.cell_width = 0.8
-config.freetype_load_target = "Light"
-config.window_padding = {
-  left = 5,
-  right = 0,
-  top = 10,
-  bottom = 0,
-}
-
-config.window_decorations = "RESIZE"
-config.window_close_confirmation = "AlwaysPrompt"
-config.tab_bar_at_bottom = true
-config.hide_tab_bar_if_only_one_tab = true
-config.freetype_load_target = "Normal"
-config.automatically_reload_config = true
-config.window_close_confirmation = 'NeverPrompt'
-
---[[ config.window_background_image_hsb = {
-  brightness = 0.02,
-  hue = 1.0,
-  saturation = 1.0
-} ]]
-
+--[[ function apply_to_config(config)
 local homeDirectory = os.getenv("HOME")
   -- Key bindings to manage windows and panes similar to tmux and sesh
   config.keys = {
@@ -51,7 +16,7 @@ local homeDirectory = os.getenv("HOME")
     -- Move to the previous pane
     { key = 'h', mods = 'CTRL', action = wezterm.action.ActivatePaneDirection 'Prev' },
     -- Create a new window
-    { key = 'n', mods = 'CTRL | SHIFT', action = wezterm.action.SpawnWindow },
+    { key = 'n', mods = 'CTRL', action = wezterm.action.SpawnWindow },
     -- Close current tab
     { key = 'w', mods = 'CTRL', action = wezterm.action.CloseCurrentTab { confirm = true } },
     -- Reload configuration
@@ -76,12 +41,13 @@ local homeDirectory = os.getenv("HOME")
         }
       end)
     },
-    --[[ { key = 's', mods = 'CTRL', action = wezterm.action_callback(function(win, pane)
+ { key = 's', mods = 'CTRL', action = wezterm.action_callback(function(win, pane)
         wezterm.mux.spawn_window {
           cwd = homeDirectory .. '/Logistics/Repos/CAL.CD.BackOfficeTools.Permissions',
         }
       end)
-    }, ]]
+    }, 
   }
 
-return config
+end ]]
+return module

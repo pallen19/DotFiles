@@ -1,4 +1,6 @@
 local M = {
-    dir =  vim.fn.stdpath'config' .. "/plugins/nugetPackageManager.nvim",
+    enabled = false,
+    dir = "~/plugins/nugetPackageManager.nvim",
+    opts = {},
 }
 return M;

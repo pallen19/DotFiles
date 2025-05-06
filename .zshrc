@@ -8,6 +8,9 @@ export PATH=${PATH}:$GECKO_DRIVER
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# Run zsh-autosuggestions executable file
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
@@ -146,3 +149,6 @@ alias dlsc='docker ps'
 alias dlsi='docker images'
 
 alias config='/usr/bin/git --git-dir=/Users/paul.allen/.nvim-config/ --work-tree=/Users/paul.allen'
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"

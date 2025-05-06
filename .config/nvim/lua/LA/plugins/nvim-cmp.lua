@@ -1,6 +1,7 @@
 return {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    --[[ "hrsh7th/nvim-cmp",
+    -- event = "InsertEnter",
+    enabled = false,
     dependencies = {
         "hrsh7th/cmp-buffer",   -- source for text in the buffer
         "hrsh7th/cmp-nvim-lua", -- special nvim knowldege
@@ -47,5 +48,5 @@ return {
                 { name = "path" },
             }),
         })
-    end,
+    end, ]]
 }

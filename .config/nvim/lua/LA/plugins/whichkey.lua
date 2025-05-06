@@ -33,6 +33,7 @@ return {
                 { "<leader>s_", hidden = true },
                 { "<leader>w",  group = "[W]orkspace" },
                 { "<leader>w_", hidden = true },
+                {"<localleader>s_", group = "[S]tep"}
             }
         end,
     },

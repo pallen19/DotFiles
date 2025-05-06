@@ -2,6 +2,7 @@ return {
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
+        enable = true, -- enable lazydev
         opts = {
             library = {
                 { path = { "nvim-dap-ui" },    types = true },

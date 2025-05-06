@@ -2,13 +2,7 @@ local M = {
     'stevearc/oil.nvim',
     enabled = true,
     ---@module 'oil'
-    ---@type oil.SetupOpts
     opts = {},
-    -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-    config = function()
-        require 'oil'.setup{}
-    end
+    dependencies = { { "echasnovski/mini.icons", opts = {} } }
 }
 return M
